@@ -11,8 +11,9 @@ filters.setup(dp)
 
 # WEBAPP_HOST = "0.0.0.0"
 # WEBAPP_PORT = int(os.environ.get("PORT", 5000))
-user_message = 'Добро пожаловать в USOFT'
+user_message = 'Hush kelibsiz'
 admin_message = '/admin'
+
 
 
 @dp.message_handler(commands='start')
@@ -22,7 +23,11 @@ async def cmd_start(message: types.Message):
 
     markup.row(user_message)
 
-    await message.answer(f"Здравствуйте <b>{message.from_user.full_name}</b>",reply_markup=markup)
+    text = 'Javohir sizlarni xizmatizda...'
+    photo = open('data/assets/javohir.jpg', 'rb')
+
+    await message.answer(f"Assalomu Alaykum <b>{message.from_user.full_name}</b>",reply_markup=markup)
+    await message.answer_photo(photo=photo, caption=text)
 
 
 
@@ -34,13 +39,7 @@ async def user_mode(message: types.Message):
     if cid in config.ADMINS:
         config.ADMINS.remove(cid)
 
-    await message.answer('''Привет! 👋 
-
-🛍️ Чтобы перейти в каталог и выбрать приглянувшиеся товары возпользуйтесь командой /menu.
-
-❓ Возникли вопросы? Не проблема! Команда /sos поможет связаться с админами, которые постараются как можно быстрее откликнуться.''', )
-
-    await message.answer('Для заказа нажмите -> /menu', reply_markup=ReplyKeyboardRemove())
+    await message.answer('Buyurtma berish uchun bosing -> /menu', reply_markup=ReplyKeyboardRemove())
 
 
 @dp.message_handler(text=admin_message)
@@ -70,5 +69,5 @@ async def on_shutdown():
 
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=False)
+    executor.start_polling(dp, skip_updates=True)
 

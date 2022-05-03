@@ -1,4 +1,4 @@
-BOT_TOKEN = '***************************'
+BOT_TOKEN = '5263525900:AAG75z72AoXmcRh4Ag70jg7KpRzuUTt1QVE'
 
 # PROJECT_NAME = 'store-bot-example'
 #
@@ -6,4 +6,4 @@ BOT_TOKEN = '***************************'
 # WEBHOOK_PATH = '/webhook/' + BOT_TOKEN
 # WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 
-ADMINS = [111111111111]
+ADMINS = [1345227976]

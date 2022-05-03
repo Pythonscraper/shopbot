@@ -11,7 +11,7 @@ from filters import IsUser
 
 @dp.message_handler(IsUser(), text=catalog)
 async def process_catalog(message: Message):
-    await message.answer('Выберите раздел, чтобы вывести список товаров:',
+    await message.answer("Mahsulotlar ro'yxatini ko'rsatish uchun bo'limni tanlang:",
                          reply_markup=categories_markup())
 
 

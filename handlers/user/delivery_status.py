@@ -1,22 +1,18 @@
 
 from aiogram.types import Message
 from loader import dp, db
-from .menu import delivery_status, about
+from .menu import call, about
 from filters import IsUser
 
 
-@dp.message_handler(IsUser(), text=delivery_status)
+@dp.message_handler(IsUser(), text=call)
 async def process_delivery_status(message: Message):
-    
-    orders = db.fetchall('SELECT * FROM orders WHERE cid=?', (message.chat.id,))
-    
-    if len(orders) == 0: await message.answer('У вас нет активных заказов.')
-    else: await delivery_status_answer(message, orders)
+    await message.answer("Biz bilan bog'laning: +998 99 994 78 34 ")
 
 
 @dp.message_handler(IsUser(), text=about)
 async def send_about(message: Message):
-    await message.answer('Связь: +998 99 994 78 34')
+    await message.answer("Biz haqimizda endi yoziladide")
 
 
 async def delivery_status_answer(message, orders):

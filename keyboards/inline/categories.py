@@ -9,8 +9,8 @@ def categories_markup():
 
     global category_cb
     
-    markup = InlineKeyboardMarkup()
+    markup = InlineKeyboardMarkup(row_width=2)
     for idx, title in db.fetchall('SELECT * FROM categories'):
-        markup.add(InlineKeyboardButton(title, callback_data=category_cb.new(id=idx, action='view')))
+        markup.row(InlineKeyboardButton(title, callback_data=category_cb.new(id=idx, action='view')))
 
     return markup
